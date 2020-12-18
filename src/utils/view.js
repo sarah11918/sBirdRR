@@ -1,8 +1,6 @@
 import React from "react"
 import itemDetails from "./details.js"
 
-
-
 export default async function generateView(path) {
     const view = document.getElementById('data-container');
     const sightings = await getSightings(path);
