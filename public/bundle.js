@@ -22048,7 +22048,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       className: "error"
     }, react8.default.createElement("p", {
       className: "error-text"
-    }, "Please enter an eBird location region, eg: CA-PR-PE"));
+    }, "Hmmm... there are no results for this location. Either this is not an eBird region ID (eg: CA-PR-PE, US-MD-003, SE-AB) ... or no one has recorded a sighting in the last 30 days. Maybe you could submit an eBird checklist!  ;)"));
   };
   const ErrorMessage_default = ErrorMessage;
 
@@ -22069,16 +22069,25 @@ For more info, visit https://fb.me/react-mock-scheduler`);
           headers: myHeaders,
           redirect: "follow"
         };
-        const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent`, requestOptions);
-        const data = await response.json();
-        setBird(data[0]);
-        setErrorMessage(false);
+        try {
+          const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent?back=30`, requestOptions);
+          const data = await response.json();
+          if (data.length > 0) {
+            setBird(data[0]);
+            setErrorMessage(false);
+          } else {
+            setBird({comName: "No bird!", locName: "", obsDt: ""});
+            setErrorMessage(true);
+          }
+        } catch (error) {
+          alert("I don't think that's a valid Location code. Please refresh the page and try again.");
+        }
       } else {
-        setBirds({comName: "No bird!"});
         setErrorMessage(true);
+        setBird({comName: "No bird!", locName: "", obsDt: ""});
       }
     }
-    return react10.default.createElement(Container_default, null, react10.default.createElement("h1", null, "Home"), react10.default.createElement(SearchForm_default, {
+    return react10.default.createElement(Container_default, null, react10.default.createElement("h1", null, "Last Bird Sighting"), react10.default.createElement(SearchForm_default, {
       getSightings
     }), react10.default.createElement(BirdData, {
       birdData: bird

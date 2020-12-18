@@ -6,6 +6,7 @@ const SearchForm = (props) => {
         <h3>Choose your eBird Region</h3>
         <form onSubmit={props.getSightings}>  
           <select name="location">
+          
             <option value = "CA-PE-PR" selected>Prince County, PEI</option>
             <option value = "CA-PE-QU">Queens County, PEI</option>
             <option value = "CA-PE-KI">Kings County, PEI</option>

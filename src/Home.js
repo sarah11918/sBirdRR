@@ -11,7 +11,8 @@ export default function Home() {
   
   async function getSightings(event) {
     event.preventDefault()
-    const location = event.target.elements.location.value
+   const location = event.target.elements.location.value
+    
     if (location.length > 0)  {
       const myHeaders = new Headers();
       myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
@@ -22,20 +23,31 @@ export default function Home() {
         redirect: 'follow'
       };
       
-      const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent`, requestOptions);
+      try {
+      const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent?back=30`, requestOptions);
       const data = await response.json();
-      setBird(data[0])
-      setErrorMessage(false)
+        if (data.length > 0) {
+          setBird(data[0])
+          setErrorMessage(false)
+          
+        } else {
+          setBird({comName: "No bird!", locName:"", obsDt:""})
+          setErrorMessage(true)
+        }
+
+      } catch (error) {
+          alert("I don't think that's a valid Location code. Please refresh the page and try again.")
+          
+      }
      
-      
     } else {
-      setBirds({comName: "No bird!"})
       setErrorMessage(true)
+      setBird({comName:"No bird!", locName:"", obsDt:""}) 
     }
   }
   return (
     <Container>
-      <h1>Home</h1>
+      <h1>Last Bird Sighting</h1>
       <SearchForm getSightings={getSightings} />
       <BirdData birdData={bird} />
       {errorMessage && <ErrorMessage />}
@@ -45,5 +57,7 @@ export default function Home() {
 }
 
 
-      //       <BirdData birdData={bird} />
-      // {errorMessage && <ErrorMessage />}
+      //       else {
+      //   setBird({comName:"No bird!", locName:"", obsDt:""}) 
+      //   setErrorMessage(true)
+      // }
