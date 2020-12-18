@@ -1067,7 +1067,7 @@
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState(initialState) {
+        function useState2(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1358,7 +1358,7 @@
         exports.useMemo = useMemo;
         exports.useReducer = useReducer;
         exports.useRef = useRef;
-        exports.useState = useState;
+        exports.useState = useState2;
         exports.version = ReactVersion;
       })();
     }
@@ -2331,12 +2331,12 @@
     if (true) {
       (function() {
         "use strict";
-        var React11 = require_react();
+        var React15 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var checkPropTypes = require_checkPropTypes();
         var tracing = require_tracing();
-        var ReactSharedInternals = React11.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React15.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         if (!ReactSharedInternals.hasOwnProperty("ReactCurrentDispatcher")) {
           ReactSharedInternals.ReactCurrentDispatcher = {
             current: null
@@ -2389,7 +2389,7 @@
             }
           }
         }
-        if (!React11) {
+        if (!React15) {
           {
             throw Error("ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.");
           }
@@ -3734,7 +3734,7 @@
         var didWarnInvalidChild = false;
         function flattenChildren(children) {
           var content = "";
-          React11.Children.forEach(children, function(child) {
+          React15.Children.forEach(children, function(child) {
             if (child == null) {
               return;
             }
@@ -3745,7 +3745,7 @@
         function validateProps(element, props) {
           {
             if (typeof props.children === "object" && props.children !== null) {
-              React11.Children.forEach(props.children, function(child) {
+              React15.Children.forEach(props.children, function(child) {
                 if (child == null) {
                   return;
                 }
@@ -10779,7 +10779,7 @@
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React11.Component().refs;
+        var emptyRefsObject = new React15.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -21975,26 +21975,129 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     });
   }
 
-  // src/Home.js
+  // src/Container.js
   const react7 = __toModule(require_react());
-  function Home2() {
-    return react7.default.createElement("h1", null, "Home");
+  const Container = (props) => {
+    return react7.default.createElement("div", {
+      className: "container"
+    }, props.children);
+  };
+  const Container_default = Container;
+
+  // src/SearchForm.js
+  const react14 = __toModule(require_react());
+  const SearchForm2 = (props) => {
+    return react14.default.createElement(react14.default.Fragment, null, react14.default.createElement("h3", null, "Choose your eBird Region"), react14.default.createElement("form", {
+      onSubmit: props.getSightings
+    }, react14.default.createElement("select", {
+      name: "location"
+    }, react14.default.createElement("option", {
+      value: "CA-PE-PR",
+      selected: true
+    }, "Prince County, PEI"), react14.default.createElement("option", {
+      value: "CA-PE-QU"
+    }, "Queens County, PEI"), react14.default.createElement("option", {
+      value: "CA-PE-KI"
+    }, "Kings County, PEI"), react14.default.createElement("option", {
+      value: "CA-ON-DR"
+    }, "Durham Region, ON"), react14.default.createElement("option", {
+      value: "CA-ON-HT"
+    }, "Halton Region, ON"), react14.default.createElement("option", {
+      value: "CA-ON-OT"
+    }, "Ottawa, ON"), react14.default.createElement("option", {
+      value: "CA-ON-PL"
+    }, "Peel Region, ON"), react14.default.createElement("option", {
+      value: "CA-ON-SC"
+    }, "Simcoe County, ON"), react14.default.createElement("option", {
+      value: "CA-ON-TO"
+    }, "Toronto, ON")), react14.default.createElement("button", {
+      className: "select-button"
+    }, "Find my bird!")), react14.default.createElement("h3", null, "(or enter your region ID below)"), react14.default.createElement("form", {
+      onSubmit: props.getSightings,
+      className: "search-form"
+    }, react14.default.createElement("input", {
+      name: "location",
+      className: "user-input",
+      type: "text",
+      placeholder: "Location: e.g CA-PE-PR"
+    }), react14.default.createElement("button", {
+      className: "search-button"
+    }, "Find my bird!")), react14.default.createElement("p", {
+      className: "more-info"
+    }, react14.default.createElement("a", {
+      href: "https://ebird.org/canada/region/world/regions?yr=all&m=&hsStats_sortBy=cl&hsStats_o=desc"
+    }, "Visit eBird.org to find your region ID")));
+  };
+  const SearchForm_default = SearchForm2;
+
+  // src/BirdData.js
+  const react6 = __toModule(require_react());
+  function BirdData(props) {
+    const {locName, comName, obsDt} = props.birdData;
+    return react6.default.createElement("div", {
+      className: "bird-data"
+    }, react6.default.createElement("h3", null, "Bird reported most recently in the area:"), react6.default.createElement("p", {
+      className: "bird-result"
+    }, comName), react6.default.createElement("p", null, locName), react6.default.createElement("p", null, obsDt));
   }
-  const Home_default = Home2;
+
+  // src/ErrorMessage.js
+  const react8 = __toModule(require_react());
+  const ErrorMessage = () => {
+    return react8.default.createElement("div", {
+      className: "error"
+    }, react8.default.createElement("p", {
+      className: "error-text"
+    }, "Please enter an eBird location region, eg: CA-PR-PE"));
+  };
+  const ErrorMessage_default = ErrorMessage;
+
+  // src/Home.js
+  const react10 = __toModule(require_react());
+  const react11 = __toModule(require_react());
+  function Home2() {
+    const [errorMessage, setErrorMessage] = react11.useState(false);
+    const [bird, setBird] = react11.useState([{comName: "", locName: "", obsDt: ""}]);
+    async function getSightings(event) {
+      event.preventDefault();
+      const location = event.target.elements.location.value;
+      if (location.length > 0) {
+        const myHeaders = new Headers();
+        myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+        const requestOptions = {
+          method: "GET",
+          headers: myHeaders,
+          redirect: "follow"
+        };
+        const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent`, requestOptions);
+        const data = await response.json();
+        setBird(data[0]);
+        setErrorMessage(false);
+      } else {
+        setBirds({comName: "No bird!"});
+        setErrorMessage(true);
+      }
+    }
+    return react10.default.createElement(Container_default, null, react10.default.createElement("h1", null, "Home"), react10.default.createElement(SearchForm_default, {
+      getSightings
+    }), react10.default.createElement(BirdData, {
+      birdData: bird
+    }), errorMessage && react10.default.createElement(ErrorMessage_default, null));
+  }
 
   // src/Recent.js
-  const react9 = __toModule(require_react());
+  const react13 = __toModule(require_react());
   function Recent2() {
-    return react9.default.createElement(react9.default.Fragment, null, react9.default.createElement("h1", null, "Recent"), react9.default.createElement("div", {
+    return react13.default.createElement(react13.default.Fragment, null, react13.default.createElement("h1", null, "Recent"), react13.default.createElement("div", {
       id: "data-container"
     }));
   }
   const Recent_default = Recent2;
 
   // src/Notable.js
-  const react8 = __toModule(require_react());
+  const react12 = __toModule(require_react());
   function Notable2() {
-    return react8.default.createElement(react8.default.Fragment, null, react8.default.createElement("h1", null, "Notable"), react8.default.createElement("div", {
+    return react12.default.createElement(react12.default.Fragment, null, react12.default.createElement("h1", null, "Notable"), react12.default.createElement("div", {
       id: "data-container"
     }));
   }
@@ -22010,9 +22113,9 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   const Backyard_default = Backyard2;
 
   // src/Harbour.js
-  const react6 = __toModule(require_react());
+  const react9 = __toModule(require_react());
   function Harbour2() {
-    return react6.default.createElement(react6.default.Fragment, null, react6.default.createElement("h1", null, "Harbour"), react6.default.createElement("div", {
+    return react9.default.createElement(react9.default.Fragment, null, react9.default.createElement("h1", null, "Harbour"), react9.default.createElement("div", {
       id: "data-container"
     }));
   }
@@ -22046,7 +22149,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }, "Baywalk")), React4.createElement(Switch, null, React4.createElement(Route, {
       exact: true,
       path: "/"
-    }, React4.createElement(Home_default, null)), React4.createElement(Route, {
+    }, React4.createElement(Home2, null)), React4.createElement(Route, {
       exact: true,
       path: "/recent"
     }, React4.createElement(Recent_default, null)), React4.createElement(Route, {

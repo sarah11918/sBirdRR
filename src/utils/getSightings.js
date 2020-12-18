@@ -1,7 +1,7 @@
 import React from "react"
 import itemDetails from "./details.js"
 
-export default async function generateView(path) {
+export default async function getSightings(path) {
     const view = document.getElementById('data-container');
     const sightings = await getSightings(path);
     if ((path === '/species_back') || (path === '/species_front')) {
@@ -15,17 +15,18 @@ export default async function generateView(path) {
         const sightingDivs = sightings.map((sighting, i) => itemDetails({ ...sighting, index: i + 1 }));
         view.innerHTML = `<div>${sightingDivs.join('')}</div>`;
     }
-       async function getSightings(path) {
-        const myHeaders = new Headers();
-        myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+       
+    async function getSightings(path) {
+      const myHeaders = new Headers();
+      myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
 
-        const requestOptions = {
+      const requestOptions = {
             method: 'GET',
             headers: myHeaders,
             redirect: 'follow'
-        };
+      };
 
-        let requestURL;
+      let requestURL;
         if (path === '/notable') {
             requestURL = "https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full";
         } else if (path === '/recent') {
@@ -44,3 +45,4 @@ export default async function generateView(path) {
         console.log(data);
         return data; 
     }
+}
