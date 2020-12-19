@@ -9,6 +9,9 @@ body {
  
 }
 
+li{
+  list-style:none;
+}
 a {
   color:rgb(20, 20, 194);
   text-decoration: none;

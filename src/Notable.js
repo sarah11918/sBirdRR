@@ -1,26 +1,30 @@
 import React from "react"
+import { useState } from "react"
 import Container from "./Container.js"
+import NotableBirdList from "./NotableBirdList.js"
 
 export default function Notable() {
+    const [notableBirds, setNotableBirds] = useState([{comName:""}])
+    
     async function getSightings() {
-    const myHeaders = new Headers();
-    myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+      const myHeaders = new Headers();
+      myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
 
-    const requestOptions = {
+      const requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
       };
-    const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full&back=30`, requestOptions);
-    const data = await response.json();
-    console.log(data)
-    return data
-  }
+      const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full&back=30`, requestOptions);
+      const data = await response.json();
+      
+      setNotableBirds(data)
+    }
   return (
     <Container>
       <h1>Rare or Unusual birds in Prince County, PEI</h1>
       <button onClick={getSightings}>Get the list of notable birds</button>
-      <p>Note: Clicking the button successfully GETS the list of birds from eBird, but doesn't SHOW them yet.  :P</p>
+     <NotableBirdList birdList={notableBirds} />
     </Container>
   )
 }

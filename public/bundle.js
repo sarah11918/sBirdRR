@@ -1067,7 +1067,7 @@
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState2(initialState) {
+        function useState3(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1358,7 +1358,7 @@
         exports.useMemo = useMemo;
         exports.useReducer = useReducer;
         exports.useRef = useRef;
-        exports.useState = useState2;
+        exports.useState = useState3;
         exports.version = ReactVersion;
       })();
     }
@@ -2331,12 +2331,12 @@
     if (true) {
       (function() {
         "use strict";
-        var React18 = require_react();
+        var React19 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var checkPropTypes = require_checkPropTypes();
         var tracing = require_tracing();
-        var ReactSharedInternals = React18.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React19.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         if (!ReactSharedInternals.hasOwnProperty("ReactCurrentDispatcher")) {
           ReactSharedInternals.ReactCurrentDispatcher = {
             current: null
@@ -2389,7 +2389,7 @@
             }
           }
         }
-        if (!React18) {
+        if (!React19) {
           {
             throw Error("ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.");
           }
@@ -3734,7 +3734,7 @@
         var didWarnInvalidChild = false;
         function flattenChildren(children) {
           var content = "";
-          React18.Children.forEach(children, function(child) {
+          React19.Children.forEach(children, function(child) {
             if (child == null) {
               return;
             }
@@ -3745,7 +3745,7 @@
         function validateProps(element, props) {
           {
             if (typeof props.children === "object" && props.children !== null) {
-              React18.Children.forEach(props.children, function(child) {
+              React19.Children.forEach(props.children, function(child) {
                 if (child == null) {
                   return;
                 }
@@ -10779,7 +10779,7 @@
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React18.Component().refs;
+        var emptyRefsObject = new React19.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -21985,46 +21985,46 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   const Container_default = Container;
 
   // src/SearchForm.js
-  const react16 = __toModule(require_react());
+  const react18 = __toModule(require_react());
   const SearchForm2 = (props) => {
-    return react16.default.createElement(react16.default.Fragment, null, react16.default.createElement("h3", null, "Choose your eBird Region"), react16.default.createElement("form", {
+    return react18.default.createElement(react18.default.Fragment, null, react18.default.createElement("h3", null, "Choose your eBird Region"), react18.default.createElement("form", {
       onSubmit: props.getSightings
-    }, react16.default.createElement("select", {
+    }, react18.default.createElement("select", {
       name: "location"
-    }, react16.default.createElement("option", {
+    }, react18.default.createElement("option", {
       value: "CA-PE-PR",
       selected: true
-    }, "Prince County, PEI"), react16.default.createElement("option", {
+    }, "Prince County, PEI"), react18.default.createElement("option", {
       value: "CA-PE-QU"
-    }, "Queens County, PEI"), react16.default.createElement("option", {
+    }, "Queens County, PEI"), react18.default.createElement("option", {
       value: "CA-PE-KI"
-    }, "Kings County, PEI"), react16.default.createElement("option", {
+    }, "Kings County, PEI"), react18.default.createElement("option", {
       value: "CA-ON-DR"
-    }, "Durham Region, ON"), react16.default.createElement("option", {
+    }, "Durham Region, ON"), react18.default.createElement("option", {
       value: "CA-ON-HT"
-    }, "Halton Region, ON"), react16.default.createElement("option", {
+    }, "Halton Region, ON"), react18.default.createElement("option", {
       value: "CA-ON-OT"
-    }, "Ottawa, ON"), react16.default.createElement("option", {
+    }, "Ottawa, ON"), react18.default.createElement("option", {
       value: "CA-ON-PL"
-    }, "Peel Region, ON"), react16.default.createElement("option", {
+    }, "Peel Region, ON"), react18.default.createElement("option", {
       value: "CA-ON-SC"
-    }, "Simcoe County, ON"), react16.default.createElement("option", {
+    }, "Simcoe County, ON"), react18.default.createElement("option", {
       value: "CA-ON-TO"
-    }, "Toronto, ON")), react16.default.createElement("button", {
+    }, "Toronto, ON")), react18.default.createElement("button", {
       className: "select-button"
-    }, "Find my bird!")), react16.default.createElement("h3", null, "(or enter your region ID below)"), react16.default.createElement("form", {
+    }, "Find my bird!")), react18.default.createElement("h3", null, "(or enter your region ID below)"), react18.default.createElement("form", {
       onSubmit: props.getSightings,
       className: "search-form"
-    }, react16.default.createElement("input", {
+    }, react18.default.createElement("input", {
       name: "location",
       className: "user-input",
       type: "text",
       placeholder: "Location: e.g CA-PE-PR"
-    }), react16.default.createElement("button", {
+    }), react18.default.createElement("button", {
       className: "search-button"
-    }, "Find my bird!")), react16.default.createElement("p", {
+    }, "Find my bird!")), react18.default.createElement("p", {
       className: "more-info"
-    }, react16.default.createElement("a", {
+    }, react18.default.createElement("a", {
       href: "https://ebird.org/canada/region/world/regions?yr=all&m=&hsStats_sortBy=cl&hsStats_o=desc"
     }, "Visit eBird.org to find your region ID")));
   };
@@ -22095,16 +22095,16 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   }
 
   // src/utils/details.js
-  const react17 = __toModule(require_react());
+  const react19 = __toModule(require_react());
 
   // src/LocationInput.js
   const react12 = __toModule(require_react());
 
   // src/RecentBirdList.js
-  const react15 = __toModule(require_react());
+  const react17 = __toModule(require_react());
 
   // src/Recent.js
-  const react14 = __toModule(require_react());
+  const react16 = __toModule(require_react());
   function Recent2() {
     async function getSightings() {
       const myHeaders = new Headers();
@@ -22119,14 +22119,31 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       console.log(data);
       return data;
     }
-    return react14.default.createElement(Container_default, null, react14.default.createElement("h1", null, "Recent birds in Prince County, PEI"), react14.default.createElement("button", {
+    return react16.default.createElement(Container_default, null, react16.default.createElement("h1", null, "Recent birds in Prince County, PEI"), react16.default.createElement("button", {
       onClick: getSightings
-    }, "Get the list of recent birds"), react14.default.createElement("p", null, "Note: Clicking the button successfully GETS the list of birds from eBird, but doesn't SHOW them yet.  :P"));
+    }, "Get the list of recent birds"), react16.default.createElement("p", null, "Note: Clicking the button successfully GETS the list of birds from eBird, but doesn't SHOW them yet.  :P"));
+  }
+
+  // src/NotableBirdList.js
+  const react15 = __toModule(require_react());
+  function NotableBirdList2(props) {
+    let listOfNotableBirds = [];
+    for (let i = 0; i < props.birdList.length; i++) {
+      if (!listOfNotableBirds.includes(props.birdList[i].comName)) {
+        listOfNotableBirds.push(props.birdList[i].comName);
+      }
+    }
+    let birdDivs = listOfNotableBirds.map((bird) => react15.default.createElement("li", {
+      className: "birdItem"
+    }, bird));
+    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Seen in the last 30 days..."), react15.default.createElement("ul", null, birdDivs));
   }
 
   // src/Notable.js
   const react13 = __toModule(require_react());
+  const react14 = __toModule(require_react());
   function Notable2() {
+    const [notableBirds, setNotableBirds] = react14.useState([{comName: ""}]);
     async function getSightings() {
       const myHeaders = new Headers();
       myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
@@ -22137,12 +22154,13 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       };
       const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full&back=30`, requestOptions);
       const data = await response.json();
-      console.log(data);
-      return data;
+      setNotableBirds(data);
     }
     return react13.default.createElement(Container_default, null, react13.default.createElement("h1", null, "Rare or Unusual birds in Prince County, PEI"), react13.default.createElement("button", {
       onClick: getSightings
-    }, "Get the list of notable birds"), react13.default.createElement("p", null, "Note: Clicking the button successfully GETS the list of birds from eBird, but doesn't SHOW them yet.  :P"));
+    }, "Get the list of notable birds"), react13.default.createElement(NotableBirdList2, {
+      birdList: notableBirds
+    }));
   }
 
   // src/Backyard.js
