@@ -8,12 +8,17 @@ export default function Notable() {
     const [location, setLocation] = useState("CA-PE-PR")
 
 
-    function changeLocation(){
+    function changeLocationToToronto(){
       setLocation("CA-ON-TO")
     }
 
-     function changeLocationBack(){
+     function changeLocationToPEI(){
       setLocation("CA-PE-PR")
+    }
+
+    function changeLocation(event){
+      event.preventDefault()
+      setLocation(event.target.elements.location.value)
     }
     
     
@@ -36,10 +41,16 @@ export default function Notable() {
   return (
     <Container>
       <h1>Rare or Unusual birds in {location}</h1>
-      <button onClick={getSightings}>Get the list of notable birds</button>
-      <br />
-      <button className="location-change" onClick={changeLocation}>Change Location to Toronto</button>
-      <button className="location-change" onClick={changeLocationBack}>Change Location to PEI</button>
+
+      <button className="location-change" onClick={changeLocationToToronto}>Change Location to Toronto</button>
+      <button className="location-change" onClick={changeLocationToPEI}>Change Location to PEI</button>
+      <p>... or enter manually</p>
+      <form onSubmit={changeLocation}>
+        <input name="location" type="text" placeholder="eBird region ID eg. CA-PE-PR"/>
+        <button> Set Location </button>
+      </form>
+      <button onClick={getSightings}>... and then get the list of notable birds</button>
+    
      <NotableBirdList birdList={notableBirds} />
     </Container>
   )

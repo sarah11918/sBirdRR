@@ -15,7 +15,7 @@ export default function RecentBirdList(props){
 
   return(
     <>
-      <h3>Seen in the last 30 days...</h3>
+      <h3>Reported in the last 14 days...</h3>
       <ul>{birdDivs}</ul>
     </>
   )

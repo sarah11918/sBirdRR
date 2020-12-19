@@ -24,7 +24,6 @@ const SearchForm = (props) => {
           <input name="location"  className="user-input" type="text" placeholder="Location: e.g CA-PE-PR" /> 
           <button className="search-button">Find my bird!</button>
         </form>
-        <p className = "more-info"><a href="https://ebird.org/canada/region/world/regions?yr=all&m=&hsStats_sortBy=cl&hsStats_o=desc">Visit eBird.org to find your region ID</a></p>
       </>
     )
 }

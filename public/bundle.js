@@ -1067,7 +1067,7 @@
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState4(initialState) {
+        function useState6(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1358,7 +1358,7 @@
         exports.useMemo = useMemo;
         exports.useReducer = useReducer;
         exports.useRef = useRef;
-        exports.useState = useState4;
+        exports.useState = useState6;
         exports.version = ReactVersion;
       })();
     }
@@ -2331,12 +2331,12 @@
     if (true) {
       (function() {
         "use strict";
-        var React19 = require_react();
+        var React20 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var checkPropTypes = require_checkPropTypes();
         var tracing = require_tracing();
-        var ReactSharedInternals = React19.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React20.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         if (!ReactSharedInternals.hasOwnProperty("ReactCurrentDispatcher")) {
           ReactSharedInternals.ReactCurrentDispatcher = {
             current: null
@@ -2389,7 +2389,7 @@
             }
           }
         }
-        if (!React19) {
+        if (!React20) {
           {
             throw Error("ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.");
           }
@@ -3734,7 +3734,7 @@
         var didWarnInvalidChild = false;
         function flattenChildren(children) {
           var content = "";
-          React19.Children.forEach(children, function(child) {
+          React20.Children.forEach(children, function(child) {
             if (child == null) {
               return;
             }
@@ -3745,7 +3745,7 @@
         function validateProps(element, props) {
           {
             if (typeof props.children === "object" && props.children !== null) {
-              React19.Children.forEach(props.children, function(child) {
+              React20.Children.forEach(props.children, function(child) {
                 if (child == null) {
                   return;
                 }
@@ -10779,7 +10779,7 @@
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React19.Component().refs;
+        var emptyRefsObject = new React20.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -21976,77 +21976,73 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   }
 
   // src/Container.js
-  const react7 = __toModule(require_react());
-  const Container = (props) => {
-    return react7.default.createElement("div", {
+  const react8 = __toModule(require_react());
+  const Container2 = (props) => {
+    return react8.default.createElement("div", {
       className: "container"
     }, props.children);
   };
-  const Container_default = Container;
+  const Container_default = Container2;
 
   // src/SearchForm.js
-  const react19 = __toModule(require_react());
+  const react22 = __toModule(require_react());
   const SearchForm2 = (props) => {
-    return react19.default.createElement(react19.default.Fragment, null, react19.default.createElement("h3", null, "Choose your eBird Region"), react19.default.createElement("form", {
+    return react22.default.createElement(react22.default.Fragment, null, react22.default.createElement("h3", null, "Choose your eBird Region"), react22.default.createElement("form", {
       onSubmit: props.getSightings
-    }, react19.default.createElement("select", {
+    }, react22.default.createElement("select", {
       name: "location"
-    }, react19.default.createElement("option", {
+    }, react22.default.createElement("option", {
       value: "CA-PE-PR",
       selected: true
-    }, "Prince County, PEI"), react19.default.createElement("option", {
+    }, "Prince County, PEI"), react22.default.createElement("option", {
       value: "CA-PE-QU"
-    }, "Queens County, PEI"), react19.default.createElement("option", {
+    }, "Queens County, PEI"), react22.default.createElement("option", {
       value: "CA-PE-KI"
-    }, "Kings County, PEI"), react19.default.createElement("option", {
+    }, "Kings County, PEI"), react22.default.createElement("option", {
       value: "CA-ON-DR"
-    }, "Durham Region, ON"), react19.default.createElement("option", {
+    }, "Durham Region, ON"), react22.default.createElement("option", {
       value: "CA-ON-HT"
-    }, "Halton Region, ON"), react19.default.createElement("option", {
+    }, "Halton Region, ON"), react22.default.createElement("option", {
       value: "CA-ON-OT"
-    }, "Ottawa, ON"), react19.default.createElement("option", {
+    }, "Ottawa, ON"), react22.default.createElement("option", {
       value: "CA-ON-PL"
-    }, "Peel Region, ON"), react19.default.createElement("option", {
+    }, "Peel Region, ON"), react22.default.createElement("option", {
       value: "CA-ON-SC"
-    }, "Simcoe County, ON"), react19.default.createElement("option", {
+    }, "Simcoe County, ON"), react22.default.createElement("option", {
       value: "CA-ON-TO"
-    }, "Toronto, ON")), react19.default.createElement("button", {
+    }, "Toronto, ON")), react22.default.createElement("button", {
       className: "select-button"
-    }, "Find my bird!")), react19.default.createElement("h3", null, "(or enter your region ID below)"), react19.default.createElement("form", {
+    }, "Find my bird!")), react22.default.createElement("h3", null, "(or enter your region ID below)"), react22.default.createElement("form", {
       onSubmit: props.getSightings,
       className: "search-form"
-    }, react19.default.createElement("input", {
+    }, react22.default.createElement("input", {
       name: "location",
       className: "user-input",
       type: "text",
       placeholder: "Location: e.g CA-PE-PR"
-    }), react19.default.createElement("button", {
+    }), react22.default.createElement("button", {
       className: "search-button"
-    }, "Find my bird!")), react19.default.createElement("p", {
-      className: "more-info"
-    }, react19.default.createElement("a", {
-      href: "https://ebird.org/canada/region/world/regions?yr=all&m=&hsStats_sortBy=cl&hsStats_o=desc"
-    }, "Visit eBird.org to find your region ID")));
+    }, "Find my bird!")));
   };
   const SearchForm_default = SearchForm2;
 
   // src/BirdData.js
-  const react6 = __toModule(require_react());
+  const react7 = __toModule(require_react());
   function BirdData(props) {
     const {locName, comName, obsDt} = props.birdData;
-    return react6.default.createElement("div", {
+    return react7.default.createElement("div", {
       className: "bird-data"
-    }, react6.default.createElement("h3", null, "Bird reported most recently in the area:"), react6.default.createElement("p", {
+    }, react7.default.createElement("h3", null, "Bird reported most recently in the area:"), react7.default.createElement("p", {
       className: "bird-result"
-    }, comName), react6.default.createElement("p", null, locName), react6.default.createElement("p", null, obsDt));
+    }, comName), react7.default.createElement("p", null, locName), react7.default.createElement("p", null, obsDt));
   }
 
   // src/ErrorMessage.js
-  const react8 = __toModule(require_react());
+  const react9 = __toModule(require_react());
   const ErrorMessage = () => {
-    return react8.default.createElement("div", {
+    return react9.default.createElement("div", {
       className: "error"
-    }, react8.default.createElement("p", {
+    }, react9.default.createElement("p", {
       className: "error-text"
     }, "Hmmm... there are no results for this location. Either this is not an eBird region ID (eg: CA-PR-PE, US-MD-003, SE-AB) ... or no one has recorded a sighting in the last 30 days. Maybe you could submit an eBird checklist!  ;)"));
   };
@@ -22095,7 +22091,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   }
 
   // src/utils/details.js
-  const react20 = __toModule(require_react());
+  const react23 = __toModule(require_react());
 
   // src/LocationInput.js
   const react12 = __toModule(require_react());
@@ -22112,7 +22108,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     let birdDivs = listOfRecentBirds.map((bird) => react18.default.createElement("li", {
       className: "birdItem"
     }, bird));
-    return react18.default.createElement(react18.default.Fragment, null, react18.default.createElement("h3", null, "Seen in the last 30 days..."), react18.default.createElement("ul", null, birdDivs));
+    return react18.default.createElement(react18.default.Fragment, null, react18.default.createElement("h3", null, "Reported in the last 14 days..."), react18.default.createElement("ul", null, birdDivs));
   }
 
   // src/Recent.js
@@ -22128,7 +22124,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
         headers: myHeaders,
         redirect: "follow"
       };
-      const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent?back=30`, requestOptions);
+      const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent?back=14`, requestOptions);
       const data = await response.json();
       setRecentBirds(data);
     }
@@ -22151,7 +22147,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     let birdDivs = listOfNotableBirds.map((bird) => react15.default.createElement("li", {
       className: "birdItem"
     }, bird));
-    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Seen in the last 30 days..."), react15.default.createElement("ul", null, birdDivs));
+    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 30 days..."), react15.default.createElement("ul", null, birdDivs));
   }
 
   // src/Notable.js
@@ -22160,11 +22156,15 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   function Notable2() {
     const [notableBirds, setNotableBirds] = react14.useState([{comName: ""}]);
     const [location, setLocation] = react14.useState("CA-PE-PR");
-    function changeLocation() {
+    function changeLocationToToronto() {
       setLocation("CA-ON-TO");
     }
-    function changeLocationBack() {
+    function changeLocationToPEI() {
       setLocation("CA-PE-PR");
+    }
+    function changeLocation(event) {
+      event.preventDefault();
+      setLocation(event.target.elements.location.value);
     }
     async function getSightings() {
       const myHeaders = new Headers();
@@ -22179,44 +22179,140 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       setNotableBirds(data);
     }
     return react13.default.createElement(Container_default, null, react13.default.createElement("h1", null, "Rare or Unusual birds in ", location), react13.default.createElement("button", {
-      onClick: getSightings
-    }, "Get the list of notable birds"), react13.default.createElement("br", null), react13.default.createElement("button", {
       className: "location-change",
-      onClick: changeLocation
+      onClick: changeLocationToToronto
     }, "Change Location to Toronto"), react13.default.createElement("button", {
       className: "location-change",
-      onClick: changeLocationBack
-    }, "Change Location to PEI"), react13.default.createElement(NotableBirdList2, {
+      onClick: changeLocationToPEI
+    }, "Change Location to PEI"), react13.default.createElement("p", null, "... or enter manually"), react13.default.createElement("form", {
+      onSubmit: changeLocation
+    }, react13.default.createElement("input", {
+      name: "location",
+      type: "text",
+      placeholder: "eBird region ID eg. CA-PE-PR"
+    }), react13.default.createElement("button", null, " Set Location ")), react13.default.createElement("button", {
+      onClick: getSightings
+    }, "... and then get the list of notable birds"), react13.default.createElement(NotableBirdList2, {
       birdList: notableBirds
     }));
   }
 
-  // src/Backyard.js
-  const react4 = __toModule(require_react());
-  function Backyard2() {
-    return react4.default.createElement(react4.default.Fragment, null, react4.default.createElement("h1", null, "Backyard"), react4.default.createElement("div", {
-      id: "data-container"
-    }));
+  // src/BaywalkBirdList.js
+  const react6 = __toModule(require_react());
+  function BaywalkBirdList2(props) {
+    let birdDivs = props.birdList.map((bird) => react6.default.createElement("li", {
+      className: "birdItem"
+    }, bird));
+    return react6.default.createElement(react6.default.Fragment, null, react6.default.createElement("h3", null, "All species ever recorded (species codes) in a region or at a Personal Checklist location..."), react6.default.createElement("p", null, react6.default.createElement("em", null, "(To do: convert these to common names?)")), react6.default.createElement("ul", null, birdDivs));
   }
-  const Backyard_default = Backyard2;
-
-  // src/Harbour.js
-  const react9 = __toModule(require_react());
-  function Harbour2() {
-    return react9.default.createElement(react9.default.Fragment, null, react9.default.createElement("h1", null, "Harbour"), react9.default.createElement("div", {
-      id: "data-container"
-    }));
-  }
-  const Harbour_default = Harbour2;
 
   // src/Baywalk.js
+  const react4 = __toModule(require_react());
   const react5 = __toModule(require_react());
   function Baywalk2() {
-    return react5.default.createElement(react5.default.Fragment, null, react5.default.createElement("h1", null, "Baywalk"), react5.default.createElement("div", {
-      id: "data-container"
+    const [baywalkBirds, setBaywalkBirds] = react5.useState([]);
+    const [location, setLocation] = react5.useState("L7359880");
+    function changeLocation(event) {
+      event.preventDefault();
+      setLocation(event.target.elements.location.value);
+    }
+    async function getSightings() {
+      const myHeaders = new Headers();
+      myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+      };
+      const response = await fetch(`https://api.ebird.org/v2/product/spplist/${location}`, requestOptions);
+      const data = await response.json();
+      setBaywalkBirds(data);
+    }
+    return react4.default.createElement(Container_default, null, react4.default.createElement("h1", null, "All birds seen at ", location), react4.default.createElement("form", {
+      onSubmit: changeLocation
+    }, react4.default.createElement("input", {
+      name: "location",
+      type: "text",
+      placeholder: "eg. CA-PE-PR / L7359880"
+    }), react4.default.createElement("button", null, " Set Location ")), react4.default.createElement("button", {
+      onClick: getSightings
+    }, "... and then get the list of birds"), react4.default.createElement(BaywalkBirdList2, {
+      birdList: baywalkBirds
     }));
   }
-  const Baywalk_default = Baywalk2;
+
+  // src/RegionsList.js
+  const react21 = __toModule(require_react());
+  function RegionsList2(props) {
+    let regionDivs = props.regionData.map((region) => react21.default.createElement("li", {
+      className: "regionItem"
+    }, region.name, ": ", region.code));
+    return react21.default.createElement(react21.default.Fragment, null, react21.default.createElement("h3", null, "All subregions"), react21.default.createElement("ul", null, regionDivs), react21.default.createElement("p", {
+      className: "more-info"
+    }, react21.default.createElement("a", {
+      href: "https://ebird.org/canada/region/world/regions?yr=all&m=&hsStats_sortBy=cl&hsStats_o=desc"
+    }, "You can also explore eBird.org to find your region ID")));
+  }
+
+  // src/Regions.js
+  const react19 = __toModule(require_react());
+  const react20 = __toModule(require_react());
+  function Regions2() {
+    const [location, setLocation] = react20.useState("CA-ON");
+    const [regions, setRegions] = react20.useState([]);
+    function changeLocation(event) {
+      event.preventDefault();
+      setLocation(event.target.elements.location.value);
+    }
+    function changeCountryLocation(event) {
+      event.preventDefault();
+      setLocation(event.target.elements.country.value);
+    }
+    async function getCountrySightings() {
+      const myHeaders = new Headers();
+      myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+      };
+      const response = await fetch(`https://api.ebird.org/v2/ref/region/list/subnational1/${location}.json`, requestOptions);
+      const data = await response.json();
+      console.log(data);
+      setRegions(data);
+    }
+    async function getSightings() {
+      const myHeaders = new Headers();
+      myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+      };
+      const response = await fetch(`https://api.ebird.org/v2/ref/region/list/subnational2/${location}.json`, requestOptions);
+      const data = await response.json();
+      setRegions(data);
+    }
+    return react19.default.createElement(Container_default, null, react19.default.createElement("h1", null, "List of subregions in ", location), react19.default.createElement("p", null, 'For Countries and other "Top Level" areas:'), react19.default.createElement("form", {
+      onSubmit: changeCountryLocation
+    }, react19.default.createElement("input", {
+      name: "country",
+      type: "text",
+      placeholder: "eg. SE, AU, GB"
+    }), react19.default.createElement("button", null, " Set Country ")), react19.default.createElement("button", {
+      onClick: getCountrySightings
+    }, "... and then get the list of subregions"), react19.default.createElement("p", null, "Further explore subregions (eg. Canadian Provinces/US States, Great Britain: England etc.)"), react19.default.createElement("form", {
+      onSubmit: changeLocation
+    }, react19.default.createElement("input", {
+      name: "location",
+      type: "text",
+      placeholder: "eg. CA-PE, US-MD, GB-ENG"
+    }), react19.default.createElement("button", null, " Set Location ")), react19.default.createElement("button", {
+      onClick: getSightings
+    }, "... and then get the list of subregions"), react19.default.createElement(RegionsList2, {
+      regionData: regions
+    }));
+  }
 
   // src/App.js
   const React4 = __toModule(require_react());
@@ -22229,12 +22325,10 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }, "Recent"), React4.createElement(Link, {
       to: "/notable"
     }, "Notable"), React4.createElement(Link, {
-      to: "/backyard"
-    }, "Backyard"), React4.createElement(Link, {
-      to: "/harbour"
-    }, "Harbour"), React4.createElement(Link, {
       to: "/baywalk"
-    }, "Baywalk")), React4.createElement(Switch, null, React4.createElement(Route, {
+    }, "Species List"), React4.createElement(Link, {
+      to: "/regions"
+    }, "Find a Region ID")), React4.createElement(Switch, null, React4.createElement(Route, {
       exact: true,
       path: "/"
     }, React4.createElement(Home2, null)), React4.createElement(Route, {
@@ -22245,14 +22339,11 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       path: "/notable"
     }, React4.createElement(Notable2, null)), React4.createElement(Route, {
       exact: true,
-      path: "/backyard"
-    }, React4.createElement(Backyard_default, null)), React4.createElement(Route, {
-      exact: true,
-      path: "/harbour"
-    }, React4.createElement(Harbour_default, null)), React4.createElement(Route, {
-      exact: true,
       path: "/baywalk"
-    }, React4.createElement(Baywalk_default, null))));
+    }, React4.createElement(Baywalk2, null)), React4.createElement(Route, {
+      exact: true,
+      path: "/regions"
+    }, React4.createElement(Regions2, null))));
   };
   ReactDOM.render(React4.createElement(BrowserRouter, null, React4.createElement(App, null)), document.getElementById("root"));
 })();

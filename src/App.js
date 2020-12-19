@@ -5,9 +5,8 @@ import { Link, Switch, Route } from "react-router-dom"
 import Home from "./Home.js"
 import Recent from "./Recent.js"
 import Notable from "./Notable.js"
-import Backyard from "./Backyard.js"
-import Harbour from "./Harbour.js"
 import Baywalk from "./Baywalk.js"
+import Regions from "./Regions.js"
 
 
 const App = () => {
@@ -18,17 +17,15 @@ const App = () => {
         <Link to="/">Home</Link>
         <Link to="/recent">Recent</Link>
         <Link to="/notable">Notable</Link>
-        <Link to="/backyard">Backyard</Link>
-        <Link to="/harbour">Harbour</Link>
-        <Link to="/baywalk">Baywalk</Link>
+        <Link to="/baywalk">Species List</Link>
+        <Link to="/regions">Find a Region ID</Link>
       </nav>
       <Switch>
         <Route exact path="/"><Home /></Route>
         <Route exact path="/recent"><Recent /></Route>
         <Route exact path="/notable"><Notable /></Route>
-        <Route exact path="/backyard"><Backyard /></Route>
-        <Route exact path="/harbour"><Harbour /></Route>
         <Route exact path="/baywalk"><Baywalk /></Route>
+        <Route exact path="/regions"><Regions /></Route>
       </Switch>
     </div>
   );

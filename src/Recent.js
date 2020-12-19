@@ -17,7 +17,7 @@ export default function Recent() {
       headers: myHeaders,
       redirect: 'follow'
       };
-    const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent?back=30`, requestOptions);
+    const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent?back=14`, requestOptions);
     const data = await response.json();
     setRecentBirds(data)
   }
