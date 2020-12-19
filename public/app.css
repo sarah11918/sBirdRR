@@ -28,6 +28,10 @@ button {
   border-radius: 5px;
   padding:0.25em;
 }
+
+.location-change {
+  background: rgb(231, 250, 216);
+}
 .select-button {
   font-size: 1.25em;
 }

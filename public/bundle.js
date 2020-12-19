@@ -1067,7 +1067,7 @@
           }
           return dispatcher.useContext(Context, unstable_observedBits);
         }
-        function useState3(initialState) {
+        function useState4(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1358,7 +1358,7 @@
         exports.useMemo = useMemo;
         exports.useReducer = useReducer;
         exports.useRef = useRef;
-        exports.useState = useState3;
+        exports.useState = useState4;
         exports.version = ReactVersion;
       })();
     }
@@ -21985,46 +21985,46 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   const Container_default = Container;
 
   // src/SearchForm.js
-  const react18 = __toModule(require_react());
+  const react19 = __toModule(require_react());
   const SearchForm2 = (props) => {
-    return react18.default.createElement(react18.default.Fragment, null, react18.default.createElement("h3", null, "Choose your eBird Region"), react18.default.createElement("form", {
+    return react19.default.createElement(react19.default.Fragment, null, react19.default.createElement("h3", null, "Choose your eBird Region"), react19.default.createElement("form", {
       onSubmit: props.getSightings
-    }, react18.default.createElement("select", {
+    }, react19.default.createElement("select", {
       name: "location"
-    }, react18.default.createElement("option", {
+    }, react19.default.createElement("option", {
       value: "CA-PE-PR",
       selected: true
-    }, "Prince County, PEI"), react18.default.createElement("option", {
+    }, "Prince County, PEI"), react19.default.createElement("option", {
       value: "CA-PE-QU"
-    }, "Queens County, PEI"), react18.default.createElement("option", {
+    }, "Queens County, PEI"), react19.default.createElement("option", {
       value: "CA-PE-KI"
-    }, "Kings County, PEI"), react18.default.createElement("option", {
+    }, "Kings County, PEI"), react19.default.createElement("option", {
       value: "CA-ON-DR"
-    }, "Durham Region, ON"), react18.default.createElement("option", {
+    }, "Durham Region, ON"), react19.default.createElement("option", {
       value: "CA-ON-HT"
-    }, "Halton Region, ON"), react18.default.createElement("option", {
+    }, "Halton Region, ON"), react19.default.createElement("option", {
       value: "CA-ON-OT"
-    }, "Ottawa, ON"), react18.default.createElement("option", {
+    }, "Ottawa, ON"), react19.default.createElement("option", {
       value: "CA-ON-PL"
-    }, "Peel Region, ON"), react18.default.createElement("option", {
+    }, "Peel Region, ON"), react19.default.createElement("option", {
       value: "CA-ON-SC"
-    }, "Simcoe County, ON"), react18.default.createElement("option", {
+    }, "Simcoe County, ON"), react19.default.createElement("option", {
       value: "CA-ON-TO"
-    }, "Toronto, ON")), react18.default.createElement("button", {
+    }, "Toronto, ON")), react19.default.createElement("button", {
       className: "select-button"
-    }, "Find my bird!")), react18.default.createElement("h3", null, "(or enter your region ID below)"), react18.default.createElement("form", {
+    }, "Find my bird!")), react19.default.createElement("h3", null, "(or enter your region ID below)"), react19.default.createElement("form", {
       onSubmit: props.getSightings,
       className: "search-form"
-    }, react18.default.createElement("input", {
+    }, react19.default.createElement("input", {
       name: "location",
       className: "user-input",
       type: "text",
       placeholder: "Location: e.g CA-PE-PR"
-    }), react18.default.createElement("button", {
+    }), react19.default.createElement("button", {
       className: "search-button"
-    }, "Find my bird!")), react18.default.createElement("p", {
+    }, "Find my bird!")), react19.default.createElement("p", {
       className: "more-info"
-    }, react18.default.createElement("a", {
+    }, react19.default.createElement("a", {
       href: "https://ebird.org/canada/region/world/regions?yr=all&m=&hsStats_sortBy=cl&hsStats_o=desc"
     }, "Visit eBird.org to find your region ID")));
   };
@@ -22095,17 +22095,31 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   }
 
   // src/utils/details.js
-  const react19 = __toModule(require_react());
+  const react20 = __toModule(require_react());
 
   // src/LocationInput.js
   const react12 = __toModule(require_react());
 
   // src/RecentBirdList.js
-  const react17 = __toModule(require_react());
+  const react18 = __toModule(require_react());
+  function RecentBirdList2(props) {
+    let listOfRecentBirds = [];
+    for (let i = 0; i < props.birdList.length; i++) {
+      if (!listOfRecentBirds.includes(props.birdList[i].comName)) {
+        listOfRecentBirds.push(props.birdList[i].comName);
+      }
+    }
+    let birdDivs = listOfRecentBirds.map((bird) => react18.default.createElement("li", {
+      className: "birdItem"
+    }, bird));
+    return react18.default.createElement(react18.default.Fragment, null, react18.default.createElement("h3", null, "Seen in the last 30 days..."), react18.default.createElement("ul", null, birdDivs));
+  }
 
   // src/Recent.js
   const react16 = __toModule(require_react());
+  const react17 = __toModule(require_react());
   function Recent2() {
+    const [recentBirds, setRecentBirds] = react17.useState([{comName: ""}]);
     async function getSightings() {
       const myHeaders = new Headers();
       myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
@@ -22116,12 +22130,13 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       };
       const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent?back=30`, requestOptions);
       const data = await response.json();
-      console.log(data);
-      return data;
+      setRecentBirds(data);
     }
     return react16.default.createElement(Container_default, null, react16.default.createElement("h1", null, "Recent birds in Prince County, PEI"), react16.default.createElement("button", {
       onClick: getSightings
-    }, "Get the list of recent birds"), react16.default.createElement("p", null, "Note: Clicking the button successfully GETS the list of birds from eBird, but doesn't SHOW them yet.  :P"));
+    }, "Get the list of recent birds"), react16.default.createElement(RecentBirdList2, {
+      birdList: recentBirds
+    }));
   }
 
   // src/NotableBirdList.js
@@ -22144,6 +22159,13 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   const react14 = __toModule(require_react());
   function Notable2() {
     const [notableBirds, setNotableBirds] = react14.useState([{comName: ""}]);
+    const [location, setLocation] = react14.useState("CA-PE-PR");
+    function changeLocation() {
+      setLocation("CA-ON-TO");
+    }
+    function changeLocationBack() {
+      setLocation("CA-PE-PR");
+    }
     async function getSightings() {
       const myHeaders = new Headers();
       myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
@@ -22152,13 +22174,19 @@ For more info, visit https://fb.me/react-mock-scheduler`);
         headers: myHeaders,
         redirect: "follow"
       };
-      const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full&back=30`, requestOptions);
+      const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent/notable?detail=full&back=30`, requestOptions);
       const data = await response.json();
       setNotableBirds(data);
     }
-    return react13.default.createElement(Container_default, null, react13.default.createElement("h1", null, "Rare or Unusual birds in Prince County, PEI"), react13.default.createElement("button", {
+    return react13.default.createElement(Container_default, null, react13.default.createElement("h1", null, "Rare or Unusual birds in ", location), react13.default.createElement("button", {
       onClick: getSightings
-    }, "Get the list of notable birds"), react13.default.createElement(NotableBirdList2, {
+    }, "Get the list of notable birds"), react13.default.createElement("br", null), react13.default.createElement("button", {
+      className: "location-change",
+      onClick: changeLocation
+    }, "Change Location to Toronto"), react13.default.createElement("button", {
+      className: "location-change",
+      onClick: changeLocationBack
+    }, "Change Location to PEI"), react13.default.createElement(NotableBirdList2, {
       birdList: notableBirds
     }));
   }
