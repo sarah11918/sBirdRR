@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function BirdData(props) {
-  const { locName, comName, obsDt} = props.birdData
+  const { locId, locName, comName, obsDt} = props.birdData
 
   return (
     <div className="bird-data">

@@ -22029,7 +22029,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   // src/BirdData.js
   const react7 = __toModule(require_react());
   function BirdData(props) {
-    const {locName, comName, obsDt} = props.birdData;
+    const {locId, locName, comName, obsDt} = props.birdData;
     return react7.default.createElement("div", {
       className: "bird-data"
     }, react7.default.createElement("h3", null, "Bird reported most recently in the area:"), react7.default.createElement("p", {
