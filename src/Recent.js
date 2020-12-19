@@ -1,34 +1,84 @@
 import React from "react"
 //import getSightings from '../utils/getSightings.js'
-//import itemDetails from '../utils/details.js'
+import itemDetails from './utils/details.js'
+import LocationInput from "./LocationInput.js"
+import RecentBirdList from "./RecentBirdList.js"
+import Container from "./Container.js"
 
 export default function Recent() {
-  // const sightings = await getSightings()
-  // const sightingDivs = sightings.map((sighting, i) => itemDetails({ ...sighting, index: i + 1 }));
-  //       view.innerHTML = `<div>${sightingDivs.join('')}</div>`;
+  async function getSightings() {
+    const myHeaders = new Headers();
+    myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
 
-  //   async function getSightings(path) {
-  //       const myHeaders = new Headers();
-  //       myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
-
-  //       const requestOptions = {
-  //           method: 'GET',
-  //           headers: myHeaders,
-  //           redirect: 'follow'
-  //       };
-
-  //       let requestURL = "https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/";
-        
-  //       const response = await fetch(requestURL, requestOptions);
-  //       const data = await response.json();
-  //       console.log(data);
-  //       return data; 
-  //   }
-
+    const requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+      };
+    const response = await fetch(`https://api.ebird.org/v2/data/obs/CA-PE-PR/recent?back=30`, requestOptions);
+    const data = await response.json();
+    console.log(data)
+    return data
+  }
+  
   return (
-    <>
-      <h1>Recent</h1>
-      <div id="data-container"></div>
-    </>
+    <Container>
+      <h1>Recent birds in Prince County, PEI</h1>
+      <button onClick={getSightings}>Get the list of recent birds</button>
+      <p>Note: Clicking the button successfully GETS the list of birds from eBird, but doesn't SHOW them yet.  :P</p>
+    </Container>
   )
 }
+
+//export default function Recent(event) {
+  //  const [errorMessage, setErrorMessage] = useState(false)
+  // const [birds, setBirds] = useState([{comName: "", locName:"", obsDt:""}])
+  
+  // async function getSightings(event) {
+  //  event.preventDefault()
+  //  const location = event.target.elements.location.value
+    
+  //   if (location.length > 0)  {
+  //     const myHeaders = new Headers();
+  //     myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
+
+  //     const requestOptions = {
+  //       method: 'GET',
+  //       headers: myHeaders,
+  //       redirect: 'follow'
+  //     };
+      
+  //     try {
+  //     const response = await fetch(`https://api.ebird.org/v2/data/obs/${location}/recent?back=30`, requestOptions);
+  //     const data = await response.json();
+  //       if (data.length > 0) {
+  //         setBirds(data)
+  //         setErrorMessage(false)
+          
+  //       } else {
+  //         setBirds({comName: "No bird!", locName:"", obsDt:""})
+  //         setErrorMessage(true)
+  //       }
+
+  //     } catch (error) {
+  //         alert("I don't think that's a valid Location code. Please refresh the page and try again.")
+          
+  //     }
+     
+  //   } else {
+  //     setErrorMessage(true)
+  //     setBirds({comName:"No bird!", locName:"", obsDt:""}) 
+  //   }
+  
+  // }
+
+
+//return (
+  //  <>
+  //     <h1>Recent</h1>
+  //     <LocationInput getSightings = {getSightings}/>
+  //     <RecentBirdList birdData = {birds}/>
+  //     <div id="data-container"></div>
+  //   </>
+//)
+//}
