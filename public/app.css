@@ -67,3 +67,7 @@ input,
    
   }
 }
+
+.birdPending {
+  font-style:italic;
+}
