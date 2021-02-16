@@ -22139,22 +22139,25 @@ For more info, visit https://fb.me/react-mock-scheduler`);
   const react15 = __toModule(require_react());
   function NotableBirdList2(props) {
     let listOfNotableBirds = [];
+    let rareBirds = [];
     for (let i = 0; i < props.birdList.length; i++) {
       if (!listOfNotableBirds.includes(props.birdList[i].comName)) {
         listOfNotableBirds.push(props.birdList[i].comName);
+        rareBirds.push({name: `${props.birdList[i].comName}`, reviewed: `${props.birdList[i].obsReviewed}`, valid: `${props.birdList[i].obsValid}`});
       }
     }
-    let birdDivs = listOfNotableBirds.map((bird) => react15.default.createElement("li", {
-      className: "birdItem"
-    }, bird));
-    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 30 days..."), react15.default.createElement("ul", null, birdDivs));
+    let birdsPendingReview = rareBirds.filter((bird) => bird.reviewed === `false`);
+    let birdsVerified = rareBirds.filter((bird) => bird.valid === `true`);
+    let birdsPendingDivs = birdsPendingReview.map((bird) => react15.default.createElement("li", null, "Not yet verified: ", bird.name));
+    let birdsVerifiedDivs = birdsVerified.map((bird) => react15.default.createElement("li", null, bird.name));
+    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 40 days..."), react15.default.createElement("ul", null, birdsPendingDivs), react15.default.createElement("ul", null, birdsVerifiedDivs));
   }
 
   // src/Notable.js
   const react13 = __toModule(require_react());
   const react14 = __toModule(require_react());
   function Notable2() {
-    const [notableBirds, setNotableBirds] = react14.useState([{comName: ""}]);
+    const [notableBirds, setNotableBirds] = react14.useState([{comName: "", obsReviewed: ""}]);
     const [location, setLocation] = react14.useState("CA-PE-PR");
     function changeLocationToToronto() {
       setLocation("CA-ON-TO");

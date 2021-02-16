@@ -4,7 +4,7 @@ import Container from "./Container.js"
 import NotableBirdList from "./NotableBirdList.js"
 
 export default function Notable() {
-    const [notableBirds, setNotableBirds] = useState([{comName:""}])
+    const [notableBirds, setNotableBirds] = useState([{comName:"", obsReviewed:""}])
     const [location, setLocation] = useState("CA-PE-PR")
 
 
