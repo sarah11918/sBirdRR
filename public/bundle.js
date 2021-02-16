@@ -22143,11 +22143,11 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     for (let i = 0; i < props.birdList.length; i++) {
       if (!listOfNotableBirds.includes(props.birdList[i].comName)) {
         listOfNotableBirds.push(props.birdList[i].comName);
-        rareBirds.push({name: `${props.birdList[i].comName}`, reviewed: `${props.birdList[i].obsReviewed}`, valid: `${props.birdList[i].obsValid}`});
+        rareBirds.push({name: `${props.birdList[i].comName}`, reviewed: props.birdList[i].obsReviewed, valid: props.birdList[i].obsValid});
       }
     }
-    let birdsPendingReview = rareBirds.filter((bird) => bird.reviewed === `false`);
-    let birdsVerified = rareBirds.filter((bird) => bird.valid === `true`);
+    let birdsPendingReview = rareBirds.filter((bird) => bird.reviewed === false);
+    let birdsVerified = rareBirds.filter((bird) => bird.valid === true);
     let birdsPendingDivs = birdsPendingReview.map((bird) => react15.default.createElement("li", {
       className: "birdPending"
     }, bird.name, " (Not yet verified)"));

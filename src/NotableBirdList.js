@@ -8,16 +8,16 @@ export default function NotableBirdList(props){
     if (!listOfNotableBirds.includes(props.birdList[i].comName)){
       listOfNotableBirds.push(props.birdList[i].comName)
       
-      rareBirds.push({'name':`${props.birdList[i].comName}`, 'reviewed':`${props.birdList[i].obsReviewed}`, 'valid':`${props.birdList[i].obsValid}`})
+      rareBirds.push({'name':`${props.birdList[i].comName}`, 'reviewed':props.birdList[i].obsReviewed, 'valid':props.birdList[i].obsValid})
 
     }
    
   }
 
 
-  let birdsPendingReview = rareBirds.filter(bird => bird.reviewed === `false`)
+  let birdsPendingReview = rareBirds.filter(bird => bird.reviewed === false)
 
-  let birdsVerified = rareBirds.filter(bird => bird.valid ===`true`)
+  let birdsVerified = rareBirds.filter(bird => bird.valid === true)
 
 
   let birdsPendingDivs = birdsPendingReview.map(bird => <li className="birdPending">{bird.name} (Not yet verified)</li>)

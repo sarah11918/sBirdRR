@@ -60,7 +60,7 @@ input,
   color: white;
 }
 
-@media(min-width:800px){
+@media(min-width:500px){
   .container {
     width: 100vh;
     height: 100vh;
@@ -69,5 +69,5 @@ input,
 }
 
 .birdPending {
-  font-style:italic;
+  font-style: italic;
 }
