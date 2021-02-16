@@ -26,7 +26,7 @@ export default function NotableBirdList(props){
 
   return(
     <>
-      <h3>Reported in the last 40 days...</h3>
+      <h3>Reported in the last 30 days...</h3>
       <ul>{birdsPendingDivs}</ul>
       <ul>{birdsVerifiedDivs}</ul>      
     </>

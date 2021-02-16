@@ -22152,7 +22152,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       className: "birdPending"
     }, bird.name, " (Not yet verified)"));
     let birdsVerifiedDivs = birdsVerified.map((bird) => react15.default.createElement("li", null, bird.name));
-    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 40 days..."), react15.default.createElement("ul", null, birdsPendingDivs), react15.default.createElement("ul", null, birdsVerifiedDivs));
+    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 30 days..."), react15.default.createElement("ul", null, birdsPendingDivs), react15.default.createElement("ul", null, birdsVerifiedDivs));
   }
 
   // src/Notable.js
