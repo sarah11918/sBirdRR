@@ -22148,7 +22148,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }
     let birdsPendingReview = rareBirds.filter((bird) => bird.reviewed === false);
     let birdsVerified = rareBirds.filter((bird) => bird.valid === true);
-    let birdsNotValid = rareBirds.filter((bird) => bird.reviewed === true && bird.valid === false);
+    let birdsNotValid = rareBirds.filter((bird) => bird.reviewed && !bird.valid);
     let birdsPendingDivs = birdsPendingReview.map((bird) => react15.default.createElement("li", {
       className: "birdPending"
     }, bird.name, " (Not yet verified)"));
