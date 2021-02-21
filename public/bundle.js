@@ -22148,11 +22148,15 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }
     let birdsPendingReview = rareBirds.filter((bird) => bird.reviewed === false);
     let birdsVerified = rareBirds.filter((bird) => bird.valid === true);
+    let birdsNotValid = rareBirds.filter((bird) => bird.reviewed === true && bird.valid === false);
     let birdsPendingDivs = birdsPendingReview.map((bird) => react15.default.createElement("li", {
       className: "birdPending"
     }, bird.name, " (Not yet verified)"));
     let birdsVerifiedDivs = birdsVerified.map((bird) => react15.default.createElement("li", null, bird.name));
-    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 30 days..."), react15.default.createElement("ul", null, birdsPendingDivs), react15.default.createElement("ul", null, birdsVerifiedDivs));
+    let birdsNotValidDivs = birdsNotValid.map((bird) => react15.default.createElement("li", {
+      className: "birdNotValid"
+    }, bird.name, " was misidentified"));
+    return react15.default.createElement(react15.default.Fragment, null, react15.default.createElement("h3", null, "Reported in the last 30 days..."), react15.default.createElement("ul", null, birdsPendingDivs), react15.default.createElement("ul", null, birdsVerifiedDivs), react15.default.createElement("ul", null, birdsNotValidDivs));
   }
 
   // src/Notable.js

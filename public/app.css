@@ -71,3 +71,7 @@ input,
 .birdPending {
   font-style: italic;
 }
+
+.birdNotValid {
+  text-decoration:line-through;
+}

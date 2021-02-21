@@ -19,16 +19,21 @@ export default function NotableBirdList(props){
 
   let birdsVerified = rareBirds.filter(bird => bird.valid === true)
 
+  let birdsNotValid = rareBirds.filter( bird => bird.reviewed === true && bird.valid === false )
+
 
   let birdsPendingDivs = birdsPendingReview.map(bird => <li className="birdPending">{bird.name} (Not yet verified)</li>)
 
   let birdsVerifiedDivs = birdsVerified.map(bird => <li>{bird.name}</li>)
 
+  let birdsNotValidDivs = birdsNotValid.map(bird => <li className="birdNotValid">{bird.name} was misidentified</li>)
+
   return(
     <>
       <h3>Reported in the last 30 days...</h3>
       <ul>{birdsPendingDivs}</ul>
-      <ul>{birdsVerifiedDivs}</ul>      
+      <ul>{birdsVerifiedDivs}</ul>
+      <ul>{birdsNotValidDivs}</ul>      
     </>
   )
 }
