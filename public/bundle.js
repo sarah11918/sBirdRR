@@ -22083,7 +22083,10 @@ For more info, visit https://fb.me/react-mock-scheduler`);
         setBird({comName: "No bird!", locName: "", obsDt: ""});
       }
     }
-    return react10.default.createElement(Container_default, null, react10.default.createElement("h1", null, "Last Bird Sighting"), react10.default.createElement(SearchForm_default, {
+    return react10.default.createElement(Container_default, null, react10.default.createElement("h1", null, "Last Bird Sighting"), react10.default.createElement("div", null, react10.default.createElement("img", {
+      src: "./images/1SR_0222",
+      alt: "crow"
+    })), react10.default.createElement(SearchForm_default, {
       getSightings
     }), react10.default.createElement(BirdData, {
       birdData: bird
