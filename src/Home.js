@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <Container>
       <h1>Last Bird Sighting</h1>
-      <div><img src="/images/1SR_0222.JPG" alt="crow"/></div>
+      <div><img src="./images/1SR_0222.JPG" alt="crow"/></div>
       <SearchForm getSightings={getSightings} />
       <BirdData birdData={bird} />
       {errorMessage && <ErrorMessage />}
