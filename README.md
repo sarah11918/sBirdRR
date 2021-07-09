@@ -1,23 +1,7 @@
-## Repl.it React.js Template
+## sBird - React Router project
 
-A lightweight and super fast React.js template. Powered by [esbuild](https://github.com/evanw/esbuild). A few things about it:
+This is an app that pulls data from eBird.org to display recent/notable bird sightings reported by the community.
 
-- Entry file is `src/App.js`, where React is initialized
-- Public files like html, css, and images should go under `/public`
-- JavaScript files should live under `src`
+I initially built this so that I could monitor the status of my Rare/Unusual bird sightings, because one's own account page doesn't show the verified/not-yet-verified status of your observations, even though that information is available via the eBird API. I added some options to display various other bird observation data, such as the most recent bird reported in an area, and a list of all species of birds EVER reported in an area.
 
-## Development process
-
-- Simply write code, add files, etc and hit run
-- Esbuild will build your app and if there is an error you'll see it in the console
-- If the build is successful you'll see the web output pane refresh
-
-## npm packages
-
-This templates comes with the following dependencies and are installed as part of the project so you're free to change, upgrade, or replace them:
-
-- [esbuild](https://github.com/evanw/esbuild): JavaScript compiler & bundler
-- [static-here](https://github.com/amasad/static-here): is a tiny static server
-- react and react-dom: because it's a React.js template :-)
-
-To add more packages, whether React.js components, or anything else, you can simply `import` the package and Repl.it will find it and install it for you. You can also use the package manager in the sidebar. Read more about packages in Repl.it [here](https://docs.repl.it/repls/packages).
+I was learning to use React Router for page navigation, hence sBirdRR.
