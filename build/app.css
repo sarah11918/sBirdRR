@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+  
+ 
+}
+
+li{
+  list-style:none;
+}
+a {
+  color:rgb(20, 20, 194);
+  text-decoration: none;
+  background: rgb(231, 250, 216);
+  border:1px solid black;
+  border-radius: 5px;
+  padding:0.25em;
+}
+button {
+    color:rgb(20, 20, 194);
+  text-decoration: none;
+  background: rgb(216, 237, 250);
+  border:1px solid black;
+  border-radius: 5px;
+  padding:0.25em;
+}
+
+.location-change {
+  background: rgb(231, 250, 216);
+}
+.select-button {
+  font-size: 1.25em;
+}
+
+select {
+  font-size: 1.5em;
+}
+
+input,
+.search-button{
+  font-size: 1.25em;
+}
+.container {
+
+  height: 90vh;
+  width: 100vw;
+  padding: 1em;
+
+}
+
+.bird-result{
+  margin: 0;
+  font-size: 2em;
+  text-align: center;
+  background: blue;
+  color: white;
+}
+
+@media(min-width:500px){
+  .container {
+    width: 100vh;
+    height: 100vh;
+   
+  }
+}
+
+.birdPending {
+  font-style: italic;
+}
+
+.birdNotValid {
+  text-decoration:line-through;
+}
