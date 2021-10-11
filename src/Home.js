@@ -47,7 +47,7 @@ export default function Home() {
   }
   return (
     <Container>
-      <h1>Last Bird Sighting in your area</h1>
+      <h1>Last Bird Reported!</h1>
       <SearchForm getSightings={getSightings} />
       <BirdData birdData={bird} />
       {errorMessage && <ErrorMessage />}
